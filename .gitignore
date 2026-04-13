@@ -1,14 +1,3 @@
-# OS / editor
-.DS_Store
-Thumbs.db
+.pio/
 .vscode/
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-
-# Node
-node_modules/
-dist/
-build/
+.idea/
