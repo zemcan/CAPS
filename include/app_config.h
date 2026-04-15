@@ -14,38 +14,41 @@ static constexpr long APP_GMT_OFFSET_SECONDS = 9 * 3600;
 static constexpr int APP_DAYLIGHT_OFFSET_SECONDS = 0;
 static constexpr uint16_t APP_HTTP_PORT = 80;
 
-static constexpr uint8_t APP_I2C_SDA_PIN = 21;
-static constexpr uint8_t APP_I2C_SCL_PIN = 22;
+// Arduino Nano ESP32 defaults: use the board's standard I2C pins.
+static constexpr uint8_t APP_I2C_SDA_PIN = SDA;
+static constexpr uint8_t APP_I2C_SCL_PIN = SCL;
 static constexpr uint8_t APP_BH1750_ADDRESS = 0x23;
 static constexpr uint8_t APP_BME680_ADDRESS = 0x77;
 
-static constexpr uint8_t APP_RAIN_DIGITAL_PIN = 35;
+// The Nano ESP32 does not expose ESP32 DevKit-only GPIOs like 35/36.
+// These defaults use Arduino pin names so wiring is clearer on the Nano.
+static constexpr uint8_t APP_RAIN_DIGITAL_PIN = D2;
 static constexpr uint8_t APP_RAIN_ACTIVE_LEVEL = LOW;
 
-static constexpr uint8_t APP_BATTERY_ANALOG_PIN = 36;
+static constexpr uint8_t APP_BATTERY_ANALOG_PIN = A0;
 static constexpr float APP_BATTERY_DIVIDER_RATIO = 2.0f;
 static constexpr float APP_BATTERY_MIN_VOLTAGE = 3.30f;
 static constexpr float APP_BATTERY_MAX_VOLTAGE = 4.15f;
 
-static constexpr uint8_t APP_BUZZER_PIN = 25;
+static constexpr uint8_t APP_BUZZER_PIN = D3;
 static constexpr uint8_t APP_BUZZER_CHANNEL = 0;
 
-static constexpr uint8_t APP_LED_STRIP_PIN = 26;
+static constexpr uint8_t APP_LED_STRIP_PIN = D4;
 static constexpr uint16_t APP_LED_COUNT = 16;
 static constexpr uint8_t APP_LED_DEFAULT_BRIGHTNESS = 48;
 
-static constexpr uint8_t APP_LIFT_STEP_PIN = 27;
-static constexpr uint8_t APP_LIFT_DIR_PIN = 14;
-static constexpr uint8_t APP_LIFT_ENABLE_PIN = 13;
+static constexpr uint8_t APP_LIFT_STEP_PIN = D5;
+static constexpr uint8_t APP_LIFT_DIR_PIN = D6;
+static constexpr uint8_t APP_LIFT_ENABLE_PIN = D7;
 static constexpr uint8_t APP_LIFT_ENABLE_ACTIVE_LEVEL = LOW;
-static constexpr uint8_t APP_LIFT_LIMIT_BOTTOM_PIN = 32;
-static constexpr uint8_t APP_LIFT_LIMIT_TOP_PIN = 33;
+static constexpr uint8_t APP_LIFT_LIMIT_BOTTOM_PIN = D8;
+static constexpr uint8_t APP_LIFT_LIMIT_TOP_PIN = D9;
 static constexpr uint8_t APP_LIFT_LIMIT_ACTIVE_LEVEL = LOW;
 
-static constexpr uint8_t APP_TILT_IN1_PIN = 16;
-static constexpr uint8_t APP_TILT_IN2_PIN = 17;
-static constexpr uint8_t APP_TILT_IN3_PIN = 18;
-static constexpr uint8_t APP_TILT_IN4_PIN = 19;
+static constexpr uint8_t APP_TILT_IN1_PIN = D10;
+static constexpr uint8_t APP_TILT_IN2_PIN = D11;
+static constexpr uint8_t APP_TILT_IN3_PIN = D12;
+static constexpr uint8_t APP_TILT_IN4_PIN = A1;
 
 static constexpr long APP_LIFT_FALLBACK_TRAVEL_STEPS = 6000;
 static constexpr float APP_LIFT_MAX_SPEED = 1400.0f;

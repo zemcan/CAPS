@@ -4,7 +4,7 @@ This firmware is now aligned to the actual BOM you shared for the smart blind ca
 
 ## Target hardware
 
-- ESP32 DevKitC WROOM-32D V4 CH9102X
+- Arduino Nano ESP32
 - 2x 18650 cells
 - TP4056 USB-C charger
 - XL6009 step-up converter
@@ -49,23 +49,23 @@ This firmware is now aligned to the actual BOM you shared for the smart blind ca
 - [include/app_config.h](include/app_config.h): pin map, thresholds, addresses, schedules
 - [src/main.cpp](src/main.cpp): main firmware logic
 
-## Default pin map
+## Default pin map for Arduino Nano ESP32
 
-- `GPIO21`: I2C SDA
-- `GPIO22`: I2C SCL
-- `GPIO35`: rain sensor digital input
-- `GPIO36`: battery voltage sense
-- `GPIO25`: passive buzzer
-- `GPIO26`: WS2812 data
-- `GPIO27`: DRV8825 STEP
-- `GPIO14`: DRV8825 DIR
-- `GPIO13`: DRV8825 ENABLE
-- `GPIO32`: lift bottom limit switch
-- `GPIO33`: lift top limit switch
-- `GPIO16`: ULN2003 IN1
-- `GPIO17`: ULN2003 IN2
-- `GPIO18`: ULN2003 IN3
-- `GPIO19`: ULN2003 IN4
+- `SDA`: I2C SDA
+- `SCL`: I2C SCL
+- `D2`: rain sensor digital input
+- `A0`: battery voltage sense
+- `D3`: passive buzzer
+- `D4`: WS2812 data
+- `D5`: DRV8825 STEP
+- `D6`: DRV8825 DIR
+- `D7`: DRV8825 ENABLE
+- `D8`: lift bottom limit switch
+- `D9`: lift top limit switch
+- `D10`: ULN2003 IN1
+- `D11`: ULN2003 IN2
+- `D12`: ULN2003 IN3
+- `A1`: ULN2003 IN4
 
 ## Implemented behavior
 
@@ -102,10 +102,11 @@ The root page `/` gives you a simple browser control page for testing before the
    - `BH1750` usually `0x23`
    - `BME680` often `0x76` or `0x77`
 4. Verify OLED controller type and switch the display macro if needed.
-5. Adjust `APP_BATTERY_DIVIDER_RATIO` to match your resistor divider.
-6. Adjust `APP_LIFT_FALLBACK_TRAVEL_STEPS` and `APP_TILT_MAX_STEPS` after first mechanical test.
-7. Upload firmware and open serial monitor at `115200`.
-8. If station Wi-Fi is not configured, connect to the ESP32 access point named `smart-blind`.
+5. Wire the modules to the Nano ESP32 pin map above, or change the pin constants in [include/app_config.h](include/app_config.h) to match your wiring.
+6. Adjust `APP_BATTERY_DIVIDER_RATIO` to match your resistor divider.
+7. Adjust `APP_LIFT_FALLBACK_TRAVEL_STEPS` and `APP_TILT_MAX_STEPS` after first mechanical test.
+8. Upload firmware and open serial monitor at `115200`.
+9. If station Wi-Fi is not configured, connect to the ESP32 access point named `smart-blind`.
 
 ## What you may still want to add
 
